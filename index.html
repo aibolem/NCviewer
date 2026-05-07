@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <head>
-  <title>NC Viewer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
+<title>NC Viewer | Free Online G-Code Viewer & Simulator by NCnetic</title>
+<meta name="description" content="Free online G-code viewer and simulator to load, visualize, edit, and inspect CNC programs directly in your browser. No installation required.">
+<meta name="keywords" content="g-code viewer, cnc simulator, nc viewer, gcode editor, cnc viewer, ncnetic">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
   <style>
   
       :root {
@@ -289,6 +295,38 @@
       </div>
 	  <span class="separator">|</span>
     </div>
+	<div class="right">
+	  <a href="https://ncnetic.com" target="_blank" class="ncnetic-link">ncnetic.com</a>
+	  <a href="https://ncnetic.com" target="_blank">
+	  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+		  <rect width="100" height="100" fill="white"/>
+		  <g
+			 transform="translate(0,-197)"
+			 id="layer1">
+			<g
+			   id="g825"
+			   transform="matrix(1.2123638,0,0,1.2123638,-10.619734,-41.835876)">
+			  <g
+				 id="g823"
+				 transform="matrix(0.35278,0,0,-0.35278,0,296.99919)">
+				<path
+				   id="path817"
+				   d="m 221.6,197.2 2.17,1.16 2.46,-0.24 1.91,-1.57 0.71,-2.36 v -55.26 l -0.32,-1.63 -0.92,-1.38 -48,-48.01 h 44.99 l 1.57,-0.29 1.44,-0.95 0.94,-1.44 0.3,-1.57 -0.3,-1.56 -0.94,-1.44 -1.44,-0.95 -1.57,-0.3 h -55.24 l -2.37,0.72 -1.56,1.91 -0.24,2.45 1.16,2.18 54,54.02 v 43.24 l -71.31,-71.34 -1.32,-0.89 -1.69,-0.35 -1.68,0.35 -1.32,0.89 -0.9,1.32 -0.35,1.69 0.35,1.69 0.9,1.31 78.57,78.6"
+				   style="fill:#000000" />
+				<path
+				   id="path819"
+				   d="m 224.6,260.08 3.02,-0.43 2.88,-1.36 2.36,-2.15 1.56,-2.62 0.75,-2.95 -0.15,-3.19 -1.08,-2.99 -1.83,-2.45 L 84.51,94.29 h 25.2 l 28.81,28.82 3.29,2.24 2.05,0.65 2.17,0.23 2.18,-0.23 2.04,-0.65 3.3,-2.24 2.23,-3.29 0.65,-2.04 0.23,-2.18 -0.23,-2.18 -0.65,-2.04 -2.23,-3.3 -31.93,-31.93 -3.45,-2.3 -4.06,-0.82 H 58.86 l -3.01,0.44 -2.89,1.36 -2.35,2.14 -1.56,2.63 -0.75,2.95 0.14,3.19 1.08,3 1.83,2.44 147.6,147.65 H 173.76 L 66.38,131.41 l -2.45,-1.82 -2.99,-1.09 -3.19,-0.14 -2.95,0.75 -2.62,1.56 -2.15,2.35 -1.35,2.89 -0.44,3.02 v 55.26 l 0.81,4.07 2.3,3.45 37.11,37.12 h -29.6 l -3.91,0.75 -1.9,0.98 -1.7,1.38 -1.38,1.7 -0.99,1.9 -0.74,3.92 0.74,3.91 0.99,1.9 1.38,1.7 1.7,1.38 1.9,0.99 3.91,0.74 h 55.25 l 3.02,-0.43 2.88,-1.36 2.36,-2.15 1.56,-2.62 0.75,-2.95 -0.15,-3.19 -1.08,-2.99 -1.83,-2.45 -52.13,-52.15 v -25.2 l 92.35,92.38 3.45,2.3 4.07,0.81 h 55.24"
+				   style="fill:#ff0000" />
+				<path
+				   id="path821"
+				   d="M 24.83,49.65 V 283.46 H 258.64 V 49.65 H 24.83 M 36.52,271.77 V 61.34 H 246.95 V 271.77 H 36.52"
+				   style="fill:#000000" />
+			  </g>
+			</g>
+		  </g>
+		</svg>
+		</a>
+	</div>
   </header>
   <main id="main">
     <div class="editor" id="editor">
@@ -304,8 +342,7 @@
       <input type="range" id="viewerSlider" min="0" max="100" value="0" step="1" />
     </div>
   </main>
-  
-<script src="custom_gcode_parser.js"></script> <!-- script for your parseGCode function. -->
+
 <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
 
 <script type="importmap">
@@ -374,7 +411,6 @@
 	gizmo.attachControls(controls);
 
 	const raycaster = new THREE.Raycaster();
-	// raycaster.params.Line.threshold = 1;
 	const mouse = new THREE.Vector2();
 
 	let isMouseDown = false;
@@ -402,7 +438,7 @@
 			mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
 			raycaster.params.Line.threshold = size / 100 / camera.zoom;
-			
+
 			raycaster.setFromCamera(mouse, camera);
 			const intersects = raycaster.intersectObject(lineSegmentsMesh, false);
 
@@ -456,7 +492,6 @@
 		const center = box.getCenter(new THREE.Vector3());
 
 		const f = size * 1.1;
-		// raycaster.params.Line.threshold = f / 200 * camera.zoom;
 		camera.left = -f * aspect / 2;
 		camera.right = f * aspect / 2;
 		camera.top = f / 2;
@@ -471,19 +506,6 @@
 		controls.update();
 		
 		addAxisLines(box);
-
-		const viewerWidth = viewer.clientWidth;
-		const viewerHeight = viewer.clientHeight;
-		const newAspect = viewerWidth / viewerHeight;
-
-		const viewSize = camera.top - camera.bottom;
-		camera.left = -viewSize * newAspect / 2;
-		camera.right = viewSize * newAspect / 2;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize(viewerWidth, viewerHeight);
-
-		gizmo.update();
 	}
 
 	const loadBtn = document.getElementById('loadBtn');
@@ -497,7 +519,21 @@
 	});
 	require(["vs/editor/editor.main"], function () {
 		monacoEditor = monaco.editor.create(document.getElementById("codeEditor"), {
-			value: '',
+			value: `
+Welcome to nc-viewer.ncnetic!
+
+This web app allows you to simulate 
+and edit simple G-code files.
+
+For more complex G-code programs, 
+advanced simulation environments, 
+and professional-grade solutions, 
+
+please visit our website:
+https://ncnetic.com
+
+Enjoy!
+`,
 			language: "plaintext",
 			theme: document.body.classList.contains('light') ? "vs-dark" : "vs-light",
 			fontSize: 14,
@@ -570,6 +606,170 @@
 			reader.readAsText(file);
 		}
 	});
+	
+	function parseGCode(gcode, segmentCount = 64) {
+		const lines = gcode.split('\n');
+		const movements = [];
+
+		let currentPosition = { X: 0, Y: 0, Z: 0 };
+		let currentCommand = 'G0';
+		let currentFeedrate = null;
+		let centerMode = null;
+		let motionMode = 'absolute';
+		let plane = 'G17';
+
+		const ARC_CENTER_TOLERANCE = 0.001;
+		const FULL_CIRCLE_TOLERANCE = 1e-6;
+		const firstArcDetected = { used: false };
+
+		const addMove = (command, x, y, z, feedrate, lineNumber) => {
+			movements.push({ command, X: x, Y: y, Z: z, feedrate, lineNumber });
+		};
+
+		addMove(currentCommand, currentPosition.X, currentPosition.Y, currentPosition.Z, currentFeedrate, 0);
+
+		for (let i = 0; i < lines.length; i++) {
+			let line = lines[i].toUpperCase().replace(/;.*$/, '').trim();
+			if (line === '' || line.startsWith('(') || line.startsWith('%')) continue;
+
+			const tokens = [...line.matchAll(/([A-Z])([-+]?[0-9]*\.?[0-9]+)/g)];
+			const params = {};
+
+			for (const [, letter, value] of tokens) {
+				if (!params[letter]) params[letter] = [];
+				params[letter].push(parseFloat(value));
+			}
+
+			const gCodes = params['G'] || [];
+			for (const g of gCodes) {
+				if (g === 90.1) centerMode = 'absolute';
+				else if (g === 91.1) centerMode = 'relative';
+				else if (g === 90) motionMode = 'absolute';
+				else if (g === 91) motionMode = 'incremental';
+				else if ([0, 1, 2, 3].includes(g)) currentCommand = `G${g}`;
+				else if ([17, 18, 19].includes(g)) plane = `G${g}`;
+			}
+
+			if (params['F']) currentFeedrate = params['F'][0];
+
+			const x = params['X']?.[0];
+			const y = params['Y']?.[0];
+			const z = params['Z']?.[0];
+			const iVal = params['I']?.[0] ?? 0;
+			const jVal = params['J']?.[0] ?? 0;
+			const kVal = params['K']?.[0] ?? 0;
+			const rVal = params['R']?.[0];
+
+			if (currentCommand === 'G2' || currentCommand === 'G3') {
+				const target = { ...currentPosition };
+				if (x !== undefined) target.X = motionMode === 'absolute' ? x : currentPosition.X + x;
+				if (y !== undefined) target.Y = motionMode === 'absolute' ? y : currentPosition.Y + y;
+				if (z !== undefined) target.Z = motionMode === 'absolute' ? z : currentPosition.Z + z;
+
+				let axisA = 'X', axisB = 'Y', iKey = 'I', jKey = 'J';
+				if (plane === 'G18') { axisA = 'Z'; axisB = 'X'; iKey = 'K'; jKey = 'I'; }
+				else if (plane === 'G19') { axisA = 'Y'; axisB = 'Z'; iKey = 'J'; jKey = 'K'; }
+
+				const startA = currentPosition[axisA];
+				const startB = currentPosition[axisB];
+				const endA = target[axisA];
+				const endB = target[axisB];
+
+				let centerA, centerB;
+
+				if (rVal !== undefined) {
+					const dx = endA - startA;
+					const dy = endB - startB;
+					const chord2 = dx * dx + dy * dy;
+					const h = Math.sqrt(Math.max(0, rVal * rVal - chord2 / 4));
+					const dir = currentCommand === 'G2' ? -1 : 1;
+
+					const mx = (startA + endA) / 2;
+					const my = (startB + endB) / 2;
+					const nx = -dy / Math.sqrt(chord2);
+					const ny = dx / Math.sqrt(chord2);
+
+					centerA = mx + dir * h * nx;
+					centerB = my + dir * h * ny;
+				} else {
+					const relCenter = {
+						A: currentPosition[axisA] + (iKey === 'I' ? iVal : jKey === 'I' ? iVal : kVal),
+						B: currentPosition[axisB] + (jKey === 'J' ? jVal : iKey === 'J' ? jVal : kVal)
+					};
+					const absCenter = {
+						A: (iKey === 'I' ? iVal : jKey === 'I' ? iVal : kVal),
+						B: (jKey === 'J' ? jVal : iKey === 'J' ? jVal : kVal)
+					};
+
+					if (!centerMode && !firstArcDetected.used) {
+						const distRel = Math.abs(
+							Math.hypot(startA - relCenter.A, startB - relCenter.B) -
+							Math.hypot(endA - relCenter.A, endB - relCenter.B)
+						);
+						const distAbs = Math.abs(
+							Math.hypot(startA - absCenter.A, startB - absCenter.B) -
+							Math.hypot(endA - absCenter.A, endB - absCenter.B)
+						);
+						centerMode = distRel <= distAbs ? 'relative' : 'absolute';
+						firstArcDetected.used = true;
+					}
+
+					const chosen = centerMode === 'relative' ? relCenter : absCenter;
+					centerA = chosen.A;
+					centerB = chosen.B;
+				}
+
+				const startAngle = Math.atan2(startB - centerB, startA - centerA);
+				let endAngle = Math.atan2(endB - centerB, endA - centerA);
+				const radius = Math.hypot(startA - centerA, startB - centerB);
+
+				let sweep = endAngle - startAngle;
+				const isFullCircle = Math.hypot(endA - startA, endB - startB) < FULL_CIRCLE_TOLERANCE;
+				
+				if (!isFullCircle) {
+				
+					// if (isFullCircle) {
+						// sweep = currentCommand === 'G2' ? -2 * Math.PI : 2 * Math.PI;
+					// } else {
+						if (currentCommand === 'G2' && sweep > 0) sweep -= 2 * Math.PI;
+						if (currentCommand === 'G3' && sweep < 0) sweep += 2 * Math.PI;
+					// }
+
+					const orthogonalAxis = (plane === 'G17') ? 'Z' : (plane === 'G18') ? 'Y' : 'X';
+					const dOrthogonal = target[orthogonalAxis] - currentPosition[orthogonalAxis];
+
+					for (let j = 1; j <= segmentCount; j++) {
+						const angle = startAngle + (sweep * j) / segmentCount;
+						const ratio = j / segmentCount;
+						const point = { ...currentPosition };
+
+						point[axisA] = centerA + radius * Math.cos(angle);
+						point[axisB] = centerB + radius * Math.sin(angle);
+						point[orthogonalAxis] = currentPosition[orthogonalAxis] + ratio * dOrthogonal;
+
+						if (!Number.isNaN(point.X) && !Number.isNaN(point.Y) && !Number.isNaN(point.Z)) {
+							addMove('G1', point.X, point.Y, point.Z, currentFeedrate, i);
+						}
+					}
+
+					currentPosition = { ...target };
+				}
+				
+			} else if (x !== undefined || y !== undefined || z !== undefined || gCodes.length > 0) {
+				const pos = { ...currentPosition };
+				if (x !== undefined) pos.X = motionMode === 'absolute' ? x : currentPosition.X + x;
+				if (y !== undefined) pos.Y = motionMode === 'absolute' ? y : currentPosition.Y + y;
+				if (z !== undefined) pos.Z = motionMode === 'absolute' ? z : currentPosition.Z + z;
+
+				if (!Number.isNaN(pos.X) && !Number.isNaN(pos.Y) && !Number.isNaN(pos.Z)) {
+					currentPosition = { ...pos };
+					addMove(currentCommand, pos.X, pos.Y, pos.Z, currentFeedrate, i);
+				}
+			}
+		}
+
+		return movements;
+	}
 	
 	function processGCodeFromEditor() {
 		
@@ -687,7 +887,18 @@
 	});
 
 	window.addEventListener('resize', function () {
-		resetCamera();
+		const viewerWidth = viewer.clientWidth;
+		const viewerHeight = viewer.clientHeight;
+		const newAspect = viewerWidth / viewerHeight;
+
+		const viewSize = camera.top - camera.bottom;
+		camera.left = -viewSize * newAspect / 2;
+		camera.right = viewSize * newAspect / 2;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize(viewerWidth, viewerHeight);
+
+		gizmo.update();
 	});
 
 	function clearSceneLines() {
@@ -959,4 +1170,3 @@
   </script>
 </body>
 </html>
-
